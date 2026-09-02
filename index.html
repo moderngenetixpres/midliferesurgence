@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midlife Resurgence · Modern Genetix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050608;
+      --ink: #f4f6f8;
+      --silver: #c5cdd4;
+      --mute: #8b939c;
+      --cyan: #19c6e6;
+      --line: rgba(25, 198, 230, 0.35);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 28px 48px 32px;
+      position: relative;
+    }
+    .bg-helix {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      opacity: 0.22;
+    }
+    .bg-helix svg { width: min(720px, 70vw); height: auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .brand {
+      letter-spacing: 0.34em;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--silver);
+    }
+    .brand span { color: var(--cyan); }
+    .from { font-size: 11px; color: var(--mute); letter-spacing: 0.08em; }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 40px 0 24px;
+    }
+    h1 {
+      font-family: Oswald, sans-serif;
+      font-weight: 600;
+      font-size: clamp(52px, 8vw, 92px);
+      letter-spacing: 0.04em;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+    .rule {
+      width: 72px;
+      height: 2px;
+      background: var(--cyan);
+      margin: 22px auto 18px;
+      box-shadow: 0 0 16px rgba(25, 198, 230, 0.6);
+    }
+    .lede {
+      color: var(--silver);
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      max-width: 34em;
+    }
+    .hub {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: min(920px, 100%);
+      margin-top: 56px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(8, 12, 16, 0.72);
+      padding: 22px 16px 20px;
+      text-align: left;
+      backdrop-filter: blur(8px);
+    }
+    .card kbd {
+      display: block;
+      font-family: Inter, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .card h2 {
+      font-family: Oswald, sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: var(--mute);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      color: var(--mute);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 800px) {
+      .wrap { padding: 22px 20px; }
+      .hub { grid-template-columns: 1fr 1fr; }
+      header, footer { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="bg-helix" aria-hidden="true">
+      <svg viewBox="0 0 240 400" fill="none">
+        <path d="M70 20 C140 70, 100 110, 170 160 S100 250, 170 300 S90 370, 70 390" stroke="#c5cdd4" stroke-width="7" stroke-linecap="round"/>
+        <path d="M170 20 C100 70, 140 110, 70 160 S140 250, 70 300 S150 370, 170 390" stroke="#19c6e6" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+        <g stroke="#8aa0aa" stroke-width="3">
+          <line x1="92" y1="62" x2="148" y2="62"/>
+          <line x1="78" y1="108" x2="162" y2="108"/>
+          <line x1="70" y1="154" x2="170" y2="154"/>
+          <line x1="82" y1="200" x2="158" y2="200"/>
+          <line x1="70" y1="246" x2="170" y2="246"/>
+          <line x1="80" y1="292" x2="160" y2="292"/>
+          <line x1="92" y1="338" x2="148" y2="338"/>
+        </g>
+      </svg>
+    </div>
+    <header>
+      <div class="brand">MODERN <span>GENETIX</span></div>
+      <div class="from">A MODERN GENETIX SHOW</div>
+    </header>
+    <main>
+      <h1>Midlife<br>Resurgence</h1>
+      <div class="rule"></div>
+      <p class="lede">Podcast. Training. Nutrition. For men who are still building.</p>
+      <section class="hub">
+        <article class="card">
+          <kbd>01</kbd>
+          <h2>Listen</h2>
+          <p>The Midlife Resurgence podcast. Science without the guru voice.</p>
+        </article>
+        <article class="card">
+          <kbd>02</kbd>
+          <h2>Read</h2>
+          <p>Notes on recovery, bloodwork, and what actually holds up after 40.</p>
+        </article>
+        <article class="card">
+          <kbd>03</kbd>
+          <h2>Train</h2>
+          <p>Work that keeps you strong in the second half. No bro-split cosplay.</p>
+        </article>
+        <article class="card">
+          <kbd>04</kbd>
+          <h2>Eat</h2>
+          <p>Nutrition that supports training, sleep, and the long game.</p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <span>midliferesurgence.com</span>
+      <span>New Smyrna Beach, Florida</span>
+    </footer>
+  </div>
+</body>
+</html>
