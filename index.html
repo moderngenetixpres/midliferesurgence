@@ -17,7 +17,6 @@
       --line: rgba(25, 198, 230, 0.35);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
     body {
       background: var(--bg);
       color: var(--ink);
@@ -47,6 +46,8 @@
       align-items: center;
       position: relative;
       z-index: 2;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .brand {
       letter-spacing: 0.34em;
@@ -55,7 +56,22 @@
       color: var(--silver);
     }
     .brand span { color: var(--cyan); }
-    .from { font-size: 11px; color: var(--mute); letter-spacing: 0.08em; }
+    .nav { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .nav a {
+      font-size: 11px;
+      color: var(--mute);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+    .nav a:hover { color: var(--cyan); }
+    .btn-nav {
+      border: 1px solid var(--cyan);
+      color: var(--cyan) !important;
+      padding: 8px 12px;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
     main {
       flex: 1;
       display: flex;
@@ -88,6 +104,35 @@
       letter-spacing: 0.04em;
       max-width: 34em;
     }
+    .thesis {
+      margin-top: 18px;
+      color: var(--ink);
+      font-family: Oswald, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: clamp(16px, 2.4vw, 20px);
+      max-width: 28em;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: Oswald, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 14px;
+      padding: 14px 22px;
+      border: 1px solid var(--cyan);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--cyan); color: var(--bg); }
+    .btn-secondary { background: transparent; color: var(--cyan); }
     .hub {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -126,6 +171,80 @@
       font-size: 13px;
       line-height: 1.45;
     }
+    #quiz {
+      width: min(560px, 100%);
+      margin: 64px auto 24px;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: rgba(8, 12, 16, 0.85);
+      padding: 28px 24px;
+      position: relative;
+      z-index: 2;
+    }
+    #quiz .qkicker {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    #quiz h3 {
+      font-family: Oswald, sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    #quiz .qsub { color: var(--mute); font-size: 13px; margin-bottom: 20px; }
+    .q-progress { color: var(--mute); font-size: 12px; letter-spacing: 0.12em; margin-bottom: 14px; }
+    .q-prompt { color: var(--silver); font-size: 16px; margin-bottom: 14px; line-height: 1.45; }
+    .q-opt {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      font: inherit;
+      cursor: pointer;
+    }
+    .q-opt:hover, .q-opt.selected { border-color: var(--cyan); }
+    .capture label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      margin: 12px 0 6px;
+    }
+    .capture input[type="text"],
+    .capture input[type="email"],
+    .capture input[type="tel"] {
+      width: 100%;
+      background: #0a0d11;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 12px;
+      font: inherit;
+    }
+    .capture .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 14px 0 18px;
+      color: var(--mute);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .result-box h4 {
+      font-family: Oswald, sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 8px 0 10px;
+    }
+    .result-box p { color: var(--silver); font-size: 15px; line-height: 1.55; margin-bottom: 16px; }
     .disclaimer {
       margin-top: 0;
       color: var(--mute);
@@ -143,13 +262,17 @@
       color: var(--mute);
       font-size: 11px;
       letter-spacing: 0.08em;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     footer a { color: var(--mute); text-decoration: none; }
     footer a:hover { color: var(--cyan); }
+    .hidden { display: none !important; }
+    .err { color: #ff8a8a; font-size: 13px; margin-bottom: 10px; }
     @media (max-width: 800px) {
       .wrap { padding: 22px 20px; }
       .hub { grid-template-columns: 1fr 1fr; }
-      header, footer { flex-direction: column; gap: 8px; }
+      header, footer { flex-direction: column; gap: 8px; align-items: flex-start; }
     }
   </style>
 </head>
@@ -172,43 +295,228 @@
     </div>
     <header>
       <div class="brand">MODERN <span>GENETIX</span></div>
-      <div class="from">A MODERN GENETIX SHOW</div>
+      <div class="nav">
+        <a href="/bio.html">Bio</a>
+        <a href="/coaching.html">Hire Coach Mike</a>
+        <a class="btn-nav" href="/coaching.html#book">Book a Call with Coach Mike</a>
+      </div>
     </header>
     <main>
       <h1>Midlife<br>Resurgence</h1>
       <div class="rule"></div>
       <p class="lede">Podcast. Training. Nutrition. For men who are still building.</p>
+      <p class="thesis">Mindset is the only way you ever get in shape.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#quiz">Take the 60-second quiz</a>
+        <a class="btn btn-secondary" href="/coaching.html#book">Book a Call with Coach Mike</a>
+      </div>
       <section class="hub">
-        <article class="card">
+        <a class="card" href="#quiz">
           <kbd>01</kbd>
-          <h2>Listen</h2>
-          <p>The Midlife Resurgence podcast. Science without the guru voice.</p>
-        </article>
+          <h2>Quiz</h2>
+          <p>What’s actually blocking your midlife shape? Get your type + a start plan.</p>
+        </a>
         <a class="card" href="/read/why-midlife-needs-its-own-information.html">
           <kbd>02</kbd>
           <h2>Read</h2>
           <p>An introduction. Why the site. Why this crowd does not need another six pack.</p>
         </a>
-        <article class="card">
+        <a class="card" href="/coaching.html">
           <kbd>03</kbd>
-          <h2>Train</h2>
-          <p>Work that keeps you strong in the second half. No bro-split cosplay.</p>
-        </article>
-        <article class="card">
+          <h2>Coach</h2>
+          <p>Hire Coach Mike. Founding rate for the first 10 clients.</p>
+        </a>
+        <a class="card" href="/bio.html">
           <kbd>04</kbd>
-          <h2>Eat</h2>
-          <p>Nutrition that supports training, sleep, and the long game.</p>
-        </article>
+          <h2>Bio</h2>
+          <p>35 years in. Buffalo to the beach. Hands-on, not a content guy.</p>
+        </a>
       </section>
     </main>
+
+    <section id="quiz">
+      <div class="qkicker">MIDLIFE BLOCKER QUIZ</div>
+      <h3>What’s Actually Blocking Your Midlife Shape?</h3>
+      <p class="qsub">60 seconds. Email required. Phone optional. Get your type + a free Start Here plan.</p>
+
+      <div id="quiz-step"></div>
+    </section>
+
     <div style="position:relative;z-index:2;display:flex;justify-content:center;padding:0 0 24px;">
       <p class="disclaimer">I am not a doctor. This is not medical advice. Talk to your physician before you start a fitness or nutrition program.</p>
     </div>
     <footer>
       <span>midliferesurgence.com</span>
       <a href="/bio.html">Bio · Coach Mike Gill</a>
+      <a href="/coaching.html">Hire Coach Mike</a>
       <span>New Smyrna Beach, Florida</span>
     </footer>
   </div>
+
+  <script>
+    const questions = [
+      {
+        prompt: "What’s the real goal right now?",
+        options: [
+          { t: "Lose the midsection", keys: { rebuild: 2, starter: 1 } },
+          { t: "Get strong again", keys: { athlete: 2, rebuild: 1 } },
+          { t: "Energy / recovery", keys: { overloaded: 2, rebuild: 1 } },
+          { t: "All of it — don’t know where to start", keys: { starter: 2, overloaded: 1 } }
+        ]
+      },
+      {
+        prompt: "What usually kills the streak?",
+        options: [
+          { t: "Motivation fades after 2 weeks", keys: { starter: 2, athlete: 1 } },
+          { t: "Work / family schedule", keys: { overloaded: 2 } },
+          { t: "Soreness / recovery", keys: { rebuild: 2, overloaded: 1 } },
+          { t: "Diet falls apart on weekends", keys: { rebuild: 1, starter: 1, athlete: 1 } }
+        ]
+      },
+      {
+        prompt: "How do you talk to yourself about training?",
+        options: [
+          { t: "“I’ll start Monday”", keys: { starter: 2 } },
+          { t: "“I used to be able to…”", keys: { athlete: 2 } },
+          { t: "“I’m too old for this”", keys: { rebuild: 1, starter: 1 } },
+          { t: "“I just need the right plan”", keys: { rebuild: 2, overloaded: 1 } }
+        ]
+      },
+      {
+        prompt: "If mindset is 80% of the result, where are you today?",
+        options: [
+          { t: "Locked in", keys: { athlete: 1, rebuild: 1 } },
+          { t: "In and out", keys: { overloaded: 2, starter: 1 } },
+          { t: "Know I need it, don’t have it", keys: { starter: 2, rebuild: 1 } },
+          { t: "Never thought of it that way", keys: { starter: 2 } }
+        ]
+      },
+      {
+        prompt: "What do you want first from Midlife Resurgence?",
+        options: [
+          { t: "Training that fits real life", keys: { overloaded: 2, athlete: 1 } },
+          { t: "Nutrition that isn’t punishment", keys: { rebuild: 2, starter: 1 } },
+          { t: "Recovery / longevity", keys: { rebuild: 2, overloaded: 1 } },
+          { t: "The whole system", keys: { rebuild: 2, starter: 1 } }
+        ]
+      }
+    ];
+
+    const results = {
+      starter: {
+        name: "The Starter",
+        blurb: "You don’t need more information. You need one clear next action and a standard you won’t negotiate. Start simple. Show up. Mindset first."
+      },
+      athlete: {
+        name: "The Former Athlete",
+        blurb: "You already know how to train. The job now is identity and progressive return — not chasing 28 again. Keep a rep in the bag. Rebuild smart."
+      },
+      overloaded: {
+        name: "The Overloaded",
+        blurb: "Your calendar is the enemy, not your genetics. You need systems that fit work and family — short sessions, recovery, and standards that survive a hard week."
+      },
+      rebuild: {
+        name: "The Rebuild",
+        blurb: "Strength, body comp, and recovery all matter. Midlife rewards the long game: training that stays, nutrition that supports it, sleep that seals it."
+      }
+    };
+
+    let step = 0;
+    let answers = [];
+    let scores = { starter: 0, athlete: 0, overloaded: 0, rebuild: 0 };
+    let resultKey = "starter";
+
+    const root = document.getElementById("quiz-step");
+
+    function topResult() {
+      return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+    }
+
+    function renderQuestion() {
+      const q = questions[step];
+      root.innerHTML = `
+        <div class="q-progress">QUESTION ${step + 1} / ${questions.length}</div>
+        <div class="q-prompt">${q.prompt}</div>
+        ${q.options.map((o, i) => `<button type="button" class="q-opt" data-i="${i}">${o.t}</button>`).join("")}
+      `;
+      root.querySelectorAll(".q-opt").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const opt = q.options[Number(btn.dataset.i)];
+          answers.push(opt.t);
+          Object.entries(opt.keys).forEach(([k, v]) => { scores[k] += v; });
+          step += 1;
+          if (step < questions.length) renderQuestion();
+          else renderCapture();
+        });
+      });
+    }
+
+    function renderCapture() {
+      resultKey = topResult();
+      const r = results[resultKey];
+      root.innerHTML = `
+        <div class="q-progress">ALMOST THERE</div>
+        <div class="q-prompt">You’re looking like <strong style="color:var(--ink)">${r.name}</strong>. Drop your email to unlock the full Start Here plan.</div>
+        <form class="capture" id="lead-form">
+          <div class="err hidden" id="lead-err"></div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to get my quiz result and occasional Midlife Resurgence coaching notes. Unsubscribe anytime.</span>
+          </label>
+          <input type="hidden" name="_subject" value="Midlife Blocker Quiz lead" />
+          <input type="hidden" name="quiz_result" id="quiz_result" />
+          <input type="hidden" name="quiz_answers" id="quiz_answers" />
+          <button class="btn btn-primary" type="submit" style="width:100%;border:none;">Get my plan</button>
+        </form>
+      `;
+      document.getElementById("quiz_result").value = r.name;
+      document.getElementById("quiz_answers").value = answers.join(" | ");
+      document.getElementById("lead-form").addEventListener("submit", submitLead);
+    }
+
+    async function submitLead(e) {
+      e.preventDefault();
+      const form = e.target;
+      const err = document.getElementById("lead-err");
+      err.classList.add("hidden");
+      const data = new FormData(form);
+      try {
+        const res = await fetch("https://formsubmit.co/ajax/moderngenetixpres@gmail.com", {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" }
+        });
+        if (!res.ok) throw new Error("submit failed");
+        renderResult();
+      } catch (ex) {
+        err.textContent = "Couldn’t send just now — email moderngenetixpres@gmail.com or try again.";
+        err.classList.remove("hidden");
+      }
+    }
+
+    function renderResult() {
+      const r = results[resultKey];
+      root.innerHTML = `
+        <div class="result-box">
+          <div class="q-progress">YOUR TYPE</div>
+          <h4>${r.name}</h4>
+          <p>${r.blurb}</p>
+          <p><strong style="color:var(--ink)">Start Here:</strong> Pick one non‑negotiable training session this week. Put it on the calendar. Show up. Then book a call if you want the full system with me.</p>
+          <div class="hero-ctas" style="justify-content:flex-start;margin-top:8px;">
+            <a class="btn btn-primary" href="/coaching.html#book">Book a Call with Coach Mike</a>
+            <a class="btn btn-secondary" href="/coaching.html">See coaching offer</a>
+          </div>
+        </div>
+      `;
+    }
+
+    renderQuestion();
+  </script>
 </body>
 </html>
