@@ -1,0 +1,30 @@
+{
+  "site": "https://midliferesurgence.com",
+  "default_image": "/images/midlife-resurgence-og.jpg",
+  "pages": {
+    "index.html": {"type": "home", "title": "Midlife Resurgence: Strength & Fitness for Men Over 40", "description": "Coach Mike Gill's podcast, free training programs and whole-food nutrition for men over 40 who are still building. Strength training after 40 that fits real life."},
+    "bio.html": {"type": "profile", "title": "Coach Mike Gill: Pro Strongman & Midlife Strength Coach", "description": "Coach Mike Gill: 35 years under the bar, former professional strongman, strongman show announcer, BarBend writer, and President of Modern Genetix. Host of Midlife Resurgence."},
+    "coaching.html": {"type": "page", "title": "Hire Coach Mike Gill: One-Year Midlife Coaching for Men 40+", "description": "One-year midlife coaching with Coach Mike Gill. Assessment, programming, unlimited text support. Founding rate $3,999 for the first 10 clients."},
+    "nutrition.html": {"type": "page", "title": "Nutrition After 40 & GLP Sample Meal Days · Midlife Resurgence", "description": "Whole-food nutrition for men over 40: an eating playbook for GLP class medication users plus 1800, 2200 and 2500 calorie sample days from Coach Mike Gill. Not medical advice."},
+    "training.html": {"type": "page", "title": "Strength Training After 40: Free Programs · Midlife Resurgence", "description": "Free strength training programs for men over 40 from Coach Mike Gill. Start with the Midlife Training Base: Give It a Year, Less Time Up Front, and Build the Base."},
+    "videos.html": {"type": "videos", "title": "Midlife Resurgence & Doc & Coach Podcast Episodes and Videos", "description": "Watch every Midlife Resurgence and Doc & Coach podcast episode and Short with Coach Mike Gill: strength training after 40, GLP-1 drugs and muscle, fitness myths and healthy aging."},
+    "read/index.html": {"type": "readhub", "title": "Read: Midlife Training, Nutrition & Mindset Articles · Midlife Resurgence", "description": "Every Midlife Resurgence article from Coach Mike Gill: strength training after 40, midlife nutrition, GLP sample days and the mindset to keep showing up."},
+    "read/why-midlife-needs-its-own-information.html": {"type": "article", "date": "2026-09-09", "section": "Mindset", "title": "Why Midlife Needs Its Own Fitness Information · Midlife Resurgence", "description": "Coach Mike Gill on why men over 40 need training and nutrition information built for real midlife lives, not influencer templates, and why Midlife Resurgence exists."},
+    "read/give-it-a-year.html": {"type": "article", "date": "2026-09-09", "section": "Training", "title": "Give It a Year: Why Midlife Training Stalls · Midlife Resurgence"},
+    "read/less-time-up-front.html": {"type": "article", "date": "2026-09-09", "section": "Training"},
+    "read/build-the-base.html": {"type": "article", "date": "2026-09-09", "section": "Training", "title": "Build the Base: Strength Training Patterns After 40 · Midlife Resurgence"},
+    "read/eating-on-glp-class-meds.html": {"type": "article", "date": "2026-09-09", "section": "Nutrition", "title": "Eating on GLP Class Meds When You Still Train · Midlife Resurgence"},
+    "read/glp-sample-day-1800.html": {"type": "article", "date": "2026-09-09", "section": "Nutrition", "title": "1800 Calorie Whole-Food Sample Day for GLP Users · Midlife Resurgence"},
+    "read/glp-sample-day-2200.html": {"type": "article", "date": "2026-09-09", "section": "Nutrition", "title": "2200 Calorie Whole-Food Sample Day for GLP Users · Midlife Resurgence"},
+    "read/glp-sample-day-2500.html": {"type": "article", "date": "2026-09-09", "section": "Nutrition", "title": "2500 Calorie Whole-Food Sample Day for GLP Users · Midlife Resurgence"},
+    "read/mimic-the-young.html": {"type": "article", "date": "2026-09-22", "section": "Mindset", "title": "Mimic the Young: Act Younger After 40 · Midlife Resurgence"},
+    "read/too-old-is-a-quit.html": {"type": "article", "date": "2026-09-24", "section": "Mindset"}
+  },
+  "exclude_from_sitemap": ["podcast.html"],
+  "person": {"name": "Mike Gill", "alternateName": "Coach Mike Gill", "url": "https://midliferesurgence.com/bio.html", "jobTitle": "Strength coach; President, Modern Genetix", "sameAs": ["https://x.com/prostrongman"]},
+  "org": {"name": "Modern Genetix", "url": "https://moderngenetix.com", "sameAs": ["https://shop.moderngenetix.com"]},
+  "podcasts": [
+    {"name": "The Midlife Resurgence with Coach Mike Gill", "kicker": "Midlife Resurgence", "feed": "https://rss.buzzsprout.com/2649652.rss"},
+    {"name": "Doc & Coach", "kicker": "Doc & Coach", "feed": "https://rss.buzzsprout.com/2658381.rss"}
+  ]
+}
