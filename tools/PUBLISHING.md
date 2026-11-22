@@ -18,3 +18,5 @@ A push to main is live in about 1 to 2 minutes.
 
 The videos sync routine must also run step 6 before its commit, so new episodes get VideoObject schema and the sitemap lastmod updates.
 Rules: honest copy, no invented stats or results, Mike's voice, "Not medical advice" disclaimer, supplement mentions in FDA structure/function wording with the asterisk disclaimer.
+
+AEO (added Nov 22, 2026): every new post should answer the buyer question it targets in the first 2-3 paragraphs, and end with an `<h2>FAQ: ...</h2>` section (each question an `<h3>`, answer in `<p>`), then a "Keep going" list with 2-3 internal links (one shop product or Journal link where it fits, FDA-compliant). seo_build.py turns the FAQ section into FAQPage JSON-LD automatically. Topic queue: /workspace/modern-genetix/aeo/gap-topics.md.
