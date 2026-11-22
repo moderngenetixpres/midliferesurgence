@@ -91,6 +91,17 @@ def videos_ld(h):
     if changed: json.dump(cache, open('tools/video-dates.json', 'w'), indent=1, sort_keys=True)
     return items
 
+def faq_ld(h):
+    """FAQPage from any <h2>FAQ...</h2> section: each <h3> question + following <p> answers until the next <h2>."""
+    m = re.search(r'<h2>\s*FAQ[^<]*</h2>(.*?)(?=<h2|</div>\s*</body>|$)', h, flags=re.S | re.I)
+    if not m: return None
+    qs = []
+    for q, a in re.findall(r'<h3[^>]*>(.*?)</h3>(.*?)(?=<h3|$)', m.group(1), flags=re.S):
+        ans = squash(text(' '.join(re.findall(r'<p[^>]*>(.*?)</p>', a, flags=re.S))))
+        if squash(text(q)) and ans:
+            qs.append({'@type': 'Question', 'name': squash(text(q)), 'acceptedAnswer': {'@type': 'Answer', 'text': ans}})
+    return {'@type': 'FAQPage', 'mainEntity': qs} if qs else None
+
 def build_ld(path, info, h):
     t = info['cfg'].get('type', 'page')
     graph = []
@@ -113,6 +124,8 @@ def build_ld(path, info, h):
         graph.append({'@type': 'CollectionPage', 'name': info['title'], 'url': info['url'], 'description': info['desc']})
     else:
         graph.append({'@type': 'WebPage', 'name': info['title'], 'url': info['url'], 'description': info['desc'], 'isPartOf': {'@type': 'WebSite', 'name': 'Midlife Resurgence', 'url': SITE + '/'}})
+    faq = faq_ld(h)
+    if faq: graph.append(faq)
     if t not in ('home',):
         crumbs = [{'@type': 'ListItem', 'position': 1, 'name': 'Midlife Resurgence', 'item': SITE + '/'}]
         if path.startswith('read/') and path != 'read/index.html':
